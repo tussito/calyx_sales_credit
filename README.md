@@ -1,7 +1,5 @@
 # calyx_sales_credit (Odoo 15)
 
-Implementa lo solicitado en la prueba técnica:
-
 - Canales de venta con depósito y diario + código por secuencia (CH000001...)
 - Chatter con auditoría de cambios de nombre (tracking en `name`)
 - Canal obligatorio en órdenes de venta; al cambiar canal se actualiza el depósito (warehouse)
