@@ -1,0 +1,43 @@
+<odoo>
+  <record id="view_credit_group_tree" model="ir.ui.view">
+    <field name="name">calyx.credit.group.tree</field>
+    <field name="model">calyx.credit.group</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="code"/>
+        <field name="name"/>
+        <field name="channel_id"/>
+        <field name="credit_global"/>
+        <field name="credit_used"/>
+        <field name="credit_available"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_credit_group_form" model="ir.ui.view">
+    <field name="name">calyx.credit.group.form</field>
+    <field name="model">calyx.credit.group</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="code"/>
+            <field name="channel_id"/>
+          </group>
+          <group>
+            <field name="credit_global"/>
+            <field name="credit_used" readonly="1"/>
+            <field name="credit_available" readonly="1"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_credit_groups" model="ir.actions.act_window">
+    <field name="name">Grupos de crédito</field>
+    <field name="res_model">calyx.credit.group</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

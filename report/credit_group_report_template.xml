@@ -1,0 +1,79 @@
+<odoo>
+  <template id="credit_group_report_template">
+    <t t-call="web.external_layout">
+      <t t-set="o" t-value="docs[0]"/>
+      <div class="page">
+        <h2>Grupo de Crédito</h2>
+        <p><strong>Nombre:</strong> <span t-esc="o.name"/></p>
+        <p><strong>Código:</strong> <span t-esc="o.code"/></p>
+        <p><strong>Canal de venta:</strong> <span t-esc="o.channel_id.name"/> (<span t-esc="o.channel_id.code"/>)</p>
+
+        <h3>Clientes asociados</h3>
+        <t t-set="partners" t-value="o._get_partners()"/>
+        <table class="table table-sm o_main_table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Documento</th>
+              <th>Teléfono</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="partners" t-as="p">
+              <tr>
+                <td><span t-esc="p.name"/></td>
+                <td><span t-esc="p.vat or ''"/></td>
+                <td><span t-esc="p.phone or ''"/></td>
+                <td><span t-esc="p.email or ''"/></td>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+
+        <h3>Órdenes de venta consideradas</h3>
+        <t t-set="orders" t-value="o._get_open_orders()"/>
+        <table class="table table-sm o_main_table">
+          <thead>
+            <tr>
+              <th>Número</th>
+              <th>Fecha</th>
+              <th>Importe total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="orders" t-as="so">
+              <tr>
+                <td><span t-esc="so.name"/></td>
+                <td><span t-esc="so.date_order and so.date_order.date() or ''"/></td>
+                <td class="text-right"><span t-esc="so.amount_total"/></td>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+
+        <h3>Facturas consideradas (impagas)</h3>
+        <t t-set="invoices" t-value="o._get_unpaid_invoices()"/>
+        <table class="table table-sm o_main_table">
+          <thead>
+            <tr>
+              <th>Número</th>
+              <th>Fecha</th>
+              <th>Importe adeudado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <t t-foreach="invoices" t-as="inv">
+              <tr>
+                <td><span t-esc="inv.name"/></td>
+                <td><span t-esc="inv.invoice_date or inv.date or ''"/></td>
+                <td class="text-right"><span t-esc="inv.amount_residual"/></td>
+              </tr>
+            </t>
+          </tbody>
+        </table>
+
+      </div>
+    </t>
+  </template>
+</odoo>

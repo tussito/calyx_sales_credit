@@ -1,0 +1,31 @@
+<odoo>
+  <record id="view_order_form_inherit_channel" model="ir.ui.view">
+    <field name="name">sale.order.form.inherit.channel</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet//group/group" position="inside">
+        <field name="channel_id" required="1"/>
+        <field name="credit_state" readonly="1" widget="badge"
+               decoration-muted="credit_state == 'nolimit'"
+               decoration-success="credit_state == 'available'"
+               decoration-danger="credit_state == 'blocked'"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_order_tree_inherit_credit" model="ir.ui.view">
+    <field name="name">sale.order.tree.inherit.credit</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_quotation_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//tree" position="inside">
+        <field name="channel_id" optional="show"/>
+        <field name="credit_state" widget="badge" optional="show"
+               decoration-muted="credit_state == 'nolimit'"
+               decoration-success="credit_state == 'available'"
+               decoration-danger="credit_state == 'blocked'"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

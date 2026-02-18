@@ -1,0 +1,10 @@
+<odoo>
+  <record id="action_report_credit_group" model="ir.actions.report">
+    <field name="name">Reporte Grupo de Crédito</field>
+    <field name="model">calyx.credit.group</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">calyx_sales_credit.credit_group_report_template</field>
+    <field name="report_file">calyx_sales_credit.credit_group_report_template</field>
+    <field name="print_report_name">'Grupo de Crédito - %s' % (object.code or object.name)</field>
+  </record>
+</odoo>

@@ -1,0 +1,23 @@
+<odoo>
+  <record id="view_picking_form_inherit_channel" model="ir.ui.view">
+    <field name="name">stock.picking.form.inherit.channel</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet//group/group" position="inside">
+        <field name="channel_id" readonly="1"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_picking_tree_inherit_channel" model="ir.ui.view">
+    <field name="name">stock.picking.tree.inherit.channel</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.vpicktree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//tree" position="inside">
+        <field name="channel_id" optional="show"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

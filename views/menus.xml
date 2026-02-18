@@ -1,0 +1,5 @@
+<odoo>
+  <menuitem id="menu_calyx_root" name="Calyx" parent="sale.menu_sale_config" sequence="10"/>
+  <menuitem id="menu_sale_channels" name="Canales de Venta" parent="menu_calyx_root" action="action_sale_channels" sequence="10"/>
+  <menuitem id="menu_credit_groups" name="Grupos de crédito" parent="menu_calyx_root" action="action_credit_groups" sequence="20"/>
+</odoo>

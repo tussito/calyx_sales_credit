@@ -1,0 +1,38 @@
+<odoo>
+  <record id="view_sale_channel_tree" model="ir.ui.view">
+    <field name="name">calyx.sale.channel.tree</field>
+    <field name="model">calyx.sale.channel</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="code"/>
+        <field name="name"/>
+        <field name="warehouse_id"/>
+        <field name="journal_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_sale_channel_form" model="ir.ui.view">
+    <field name="name">calyx.sale.channel.form</field>
+    <field name="model">calyx.sale.channel</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="code" readonly="1"/>
+            <field name="warehouse_id"/>
+            <field name="journal_id"/>
+          </group>
+        </sheet>
+        <chatter/>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_sale_channels" model="ir.actions.act_window">
+    <field name="name">Canales de Venta</field>
+    <field name="res_model">calyx.sale.channel</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

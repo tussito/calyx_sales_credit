@@ -1,0 +1,15 @@
+<odoo>
+  <record id="view_partner_form_inherit_credit" model="ir.ui.view">
+    <field name="name">res.partner.form.inherit.credit</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet//group" position="inside">
+        <group string="Crédito">
+          <field name="credit_control"/>
+          <field name="credit_group_ids" attrs="{'invisible': [('credit_control','=',False)], 'required': [('credit_control','=',True)]}"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
+</odoo>
