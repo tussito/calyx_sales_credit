@@ -1,4 +1,4 @@
-# calyx_sales_credit (Odoo 17)
+# calyx_sales_credit (Odoo 15)
 
 Implementa lo solicitado en la prueba técnica:
 
